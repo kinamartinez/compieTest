@@ -21,13 +21,13 @@ const branches = [
         "lng": "34.9519"
     },
     {
-        "brand": "Mega",
-        "name": "Naharia",
-        "lat": "33.008536",
-        "lng": "35.098051"
+        "brand": "Tiv Tam",
+        "name": "Jerusalem",
+        "lat": "31.7683",
+        "lng": "35.2137"
     },
     {
-        "brand": "Mega",
+        "brand": "Tiv Tam",
         "name": "Raanana",
         "lat": "32.184781",
         "lng": "34.871326"
@@ -51,9 +51,15 @@ const branches = [
         "lng": "34.808871"
     },
     {
-        "brand": "Rami Levi",
+        "brand": "Tiv Tam",
         "name": "Florentine",
         "lat": "32.056036",
+        "lng": "34.772605"
+    },
+    {
+        "brand": "Shufersal",
+        "name": "Florentine",
+        "lat": "32.066036",
         "lng": "34.772605"
     },
     {
@@ -85,6 +91,12 @@ const branches = [
         "name": "Azor",
         "lat": "32.029558",
         "lng": "34.799648"
+    },
+    {
+        "brand": "Tiv Tam",
+        "name": "Haifa",
+        "lat": "32.7940",
+        "lng": "34.9896"
     }
 
 ];
@@ -389,6 +401,7 @@ function calculateFrecuencyOfMainBranches() {
     let countShufersal = 0;
     let countRamiLevi = 0;
     let countMega = 0;
+    let countTivtam =0;
     let chainFrequencies = 0;
 
     for (let i = 0; i < branches.length; i++) {
@@ -423,6 +436,9 @@ function calculateFrecuencyOfMainBranches() {
                 else if (currentBranch.brand == "Mega") {
                         countMega++
                 }
+                else if (currentBranch.brand == "Tiv Tam") {
+                    countTivtam++
+                }
                 else if (currentBranch.brand == "Rami Levi") {
                     countRamiLevi++
                 }
@@ -435,15 +451,18 @@ function calculateFrecuencyOfMainBranches() {
         }
     }
 
-    if (countShufersal >= countRamiLevi && countShufersal >= countMega) {
+    if (countShufersal >= countRamiLevi && countShufersal >= countMega && countShufersal >= countTivtam ) {
         alert ("The most frecuent Supermarket in your area is Shufersal");
         return "Shufersal"
-    } else if (countRamiLevi >= countShufersal && countRamiLevi >= countMega) {
+    } else if (countRamiLevi >= countShufersal && countRamiLevi >= countMega && countRamiLevi >= countTivtam) {
         alert("The most frecuent Supermarket in your area is RamiLevi");
-        return "RamiLevi"
-    } else if (countMega >= countShufersal && countMega >= countRamiLevi) {
+        return "Rami Levi"
+    } else if (countMega >= countShufersal && countMega >= countRamiLevi && countMega >= countTivtam) {
         alert("The most frecuent Supermarket in your area is Mega");
         return "Mega"
+    } else if (countTivtam >= countShufersal && countTivtam >= countRamiLevi && countTivtam >= countMega) {
+        alert("The most frecuent Supermarket in your area is Tiv Tam");
+        return "TivTam"
     }
 }
 
