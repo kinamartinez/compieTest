@@ -245,7 +245,7 @@ function search() {
                     Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
                     Math.sin(dLon / 2) * Math.sin(dLon / 2)
                 ;
-                const  c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+                const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
                 const d = R * c// Distance in mts
                 // console.log("soy d" + " " + d)
 
@@ -401,7 +401,7 @@ function calculateFrecuencyOfMainBranches() {
     let countShufersal = 0;
     let countRamiLevi = 0;
     let countMega = 0;
-    let countTivtam =0;
+    let countTivtam = 0;
     let chainFrequencies = 0;
 
     for (let i = 0; i < branches.length; i++) {
@@ -412,7 +412,7 @@ function calculateFrecuencyOfMainBranches() {
         const lat2 = branches[i].lat;
         const lng2 = branches[i].lng;
 
-
+//Calculating distance between the initial point and branches
         const R = 6371000; // Radius of the earth in mts
         const dLat = deg2rad(lat2 - lat1);  // deg2rad above
         const dLon = deg2rad(lng2 - lng1);
@@ -434,7 +434,7 @@ function calculateFrecuencyOfMainBranches() {
                     countShufersal++
                 }
                 else if (currentBranch.brand == "Mega") {
-                        countMega++
+                    countMega++
                 }
                 else if (currentBranch.brand == "Tiv Tam") {
                     countTivtam++
@@ -443,16 +443,13 @@ function calculateFrecuencyOfMainBranches() {
                     countRamiLevi++
                 }
 
-                // chainFrequencies[currentBranch.brand] += 1;
             }
-            // console.log(" countShufersal" + "" + countShufersal)
-            // console.log("countRamilevi" + "" + countRamiLevi)
-            // console.log(" countMega" + "" + countMega)
+
         }
     }
 
-    if (countShufersal >= countRamiLevi && countShufersal >= countMega && countShufersal >= countTivtam ) {
-        alert ("The most frecuent Supermarket in your area is Shufersal");
+    if (countShufersal >= countRamiLevi && countShufersal >= countMega && countShufersal >= countTivtam) {
+        alert("The most frecuent Supermarket in your area is Shufersal");
         return "Shufersal"
     } else if (countRamiLevi >= countShufersal && countRamiLevi >= countMega && countRamiLevi >= countTivtam) {
         alert("The most frecuent Supermarket in your area is RamiLevi");
@@ -467,21 +464,4 @@ function calculateFrecuencyOfMainBranches() {
 }
 
 calculateFrecuencyOfMainBranches()
-// const chainFrequencies = {
-//     "RamiLevi": 12,
-//     "Shufersal": 6,
-//     "Mega": 3,
-//     // };
-//     let mostFrequentChain = null;
-//     let highestChainFrequency = 0;
-//     for (const chainName of Object.keys(chainFrequencies)) {
-//         const chainFrequency = chainFrequencies[chainName];
-//
-//         if (chainFrequency >= highestChainFrequency) {
-//             mostFrequentChain = chainName;
-//         }
-//
-//     }
-//     console.log(mostFrequentChain)
-//     return mostFrequentChain;
-// }
+
